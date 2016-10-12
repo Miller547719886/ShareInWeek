@@ -26,17 +26,24 @@
         }
         
         .catalog .item {
-            display: inline-block;
-            width: 21%;
-            margin: 10px 16px;
+            float: left;
+            width: 200px;
+            height: 46px;
+            margin: 10px 15px;
             text-align: center;
         }
 
         .catalog .item a {
+            box-sizing: border-box;
+            height: 100%;
             position: relative;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            line-height: 35px;
             text-decoration: none;
             cursor: pointer;
-            display: inline-block;
+            display: block;
             background-color: #fff;
             border:1px solid #ccc;
             border-radius: 6px;
@@ -83,13 +90,23 @@
         <h1>目录</h1>
         <div class="catalog">
             <div class="item">
-                <a href="./sept-30/filter.html">
+                <a href="./sept-30/filter.html" title="filter的各种效果与兼容性研究">
                     <div class="date">
                         <span>
                             9.30
                         </span>
                     </div>
                     filter的各种效果与兼容性研究
+                </a>
+            </div>
+            <div class="item">
+                <a href="./octo-12/index.html" title="仿百度图片首页">
+                    <div class="date">
+                        <span>
+                            10.12
+                        </span>
+                    </div>
+                    仿百度图片首页
                 </a>
             </div>
         </div>
