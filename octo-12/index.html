@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #9C5C1E;
+        }
+
+        .bg {
+                position: fixed;
+                width: 100%;
+                top: 0;
+                left: 0;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left:50%;
+            padding: 10px 0 0 10px;
+            margin: -155px 0 0 -430px;
+            background-color: rgba(255,255,255,.1);
+            width: 860px;
+            height: 310px;
+        }
+
+        .box {
+            width: 160px;
+            height: 140px;
+            position: relative;
+            float: left;
+            overflow: hidden;
+            margin: 0 10px 10px 0;
+            cursor: pointer;
+        }
+
+        .box:hover img {
+            -webkit-transform: scale(1.05) translateZ(0);
+            transform: scale(1.05) translateZ(0);
+        }
+
+        .box img {
+            width: 100%;
+            -webkit-transition: transform 0.25s;
+            transition: transform 0.25s;
+        }
+
+        .cover {
+            position: absolute;
+            width: 100%;
+            height: 30px;
+            bottom: 0;
+            left: 0;
+            box-sizing: border-box;
+            line-height: 30px;
+            overflow: hidden;
+        }
+
+
+        .blur {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            transform: translateZ(0);
+            filter: url(blur.svg#blur);
+            transition: all .25s;
+            vertical-align: bottom;
+            -webkit-filter: blur(5px); /* Chrome, Opera */
+            -moz-filter: blur(5px);
+            -ms-filter: blur(5px);
+            filter: blur(5px);
+            filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+            /**left: -5px; left: -5px\0;*/
+        }
+
+        :root .mask {
+            filter: none;
+        }
+
+        .mask {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            font-family: "microsoft yahei";
+            font-size: 14px;
+            color: #fff;
+            text-indent: 10px;
+            height: 100%;
+            background-color: rgba(0,0,0,.2);
+            filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#34000000,endColorStr=#34000000);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/xique1.jpg" alt="" class="bg">
+    <div class="container">
+        <div class="box">
+            <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/sheying204b.jpg" alt="摄影">
+            <div class="cover">
+                <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/sheying204b.jpg" alt="摄影" class="blur">
+                <div class="mask">摄影</div>
+            </div>
+        </div>
+        <div class="box">
+            <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/lvyou204.jpg" alt="旅游">
+            <div class="cover">
+                <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/lvyou204.jpg" alt="旅游" class="blur">
+                <div class="mask">旅游</div>
+            </div>
+        </div>
+        <div class="box">
+            <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/mingixng204.jpg" alt="明星">
+            <div class="cover">
+                <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/mingixng204.jpg" alt="明星" class="blur">
+                <div class="mask">明星</div>
+            </div>
+        </div>
+        <div class="box">
+            <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/sheji204.jpg" alt="设计">
+            <div class="cover">
+                <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/sheji204.jpg" alt="设计" class="blur">
+                <div class="mask">设计</div>
+            </div>
+        </div>
+        <div class="box">
+            <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/chongwu204.jpg" alt="宠物">
+            <div class="cover">
+                <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/chongwu204.jpg" alt="宠物" class="blur">
+                <div class="mask">宠物</div>
+            </div>
+        </div>
+        <div class="box">
+            <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/shishang204.jpg" alt="时尚">
+            <div class="cover">
+                <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/shishang204.jpg" alt="时尚" class="blur">
+                <div class="mask">时尚</div>
+            </div>
+        </div>
+        <div class="box">
+            <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/bizhi204.jpg" alt="壁纸">
+            <div class="cover">
+                <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/bizhi204.jpg" alt="壁纸" class="blur">
+                <div class="mask">壁纸</div>
+            </div>
+        </div>
+        <div class="box">
+            <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/dongman204.jpg" alt="动漫">
+            <div class="cover">
+                <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/dongman204.jpg" alt="动漫" class="blur">
+                <div class="mask">动漫</div>
+            </div>
+        </div>
+        <div class="box">
+            <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/jiaju204.jpg" alt="家居">
+            <div class="cover">
+                <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/jiaju204.jpg" alt="家居" class="blur">
+                <div class="mask">家居</div>
+            </div>
+        </div>
+        <div class="box">
+            <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/qiche204.jpg" alt="汽车">
+            <div class="cover">
+                <img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/qiche204.jpg" alt="汽车" class="blur">
+                <div class="mask">汽车</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

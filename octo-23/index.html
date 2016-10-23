@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>word-wrap与word-break</title>
+	<style>
+		html,body {
+            height: 100%;
+            margin: 0;
+            font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif;
+        }
+
+        .wrap {
+            width: 1000px;
+            margin:0 auto;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8AgMAAABHkjHhAAAACVBMVEWAgIBaWlo+Pj7rTFvWAAAAA3RSTlMHCAw+VhR4AAAA+klEQVQoz4WSMW7EQAhFPxKWNh2FCx+HkaZI6RRb5DYbyVfIJXLKDCFoMbaTKSw/8ZnPAPjaH2xgZcUNUDADD7D9LtDBCLZ45fbkvo/30K8yeI64pPwl6znd/3n/Oe93P3ho9qeh72btTFzqkz0rsJle8Zr81OLEwZ1dv/713uWqvu2pl+k0fy7MWtj9r/tN5q/02z89qa/L4Dc2LvM93kezPfXlME/O86EbY/V9GB9ePX8G1/6W+/9h1dq/HGfTfzT3j/xNo7522Bfnqe5jO/fvhVthlfk434v3iO9zG/UOphyPeinPl1J8Gtaa7xPTa/Dk+RIs4deMvwGvcGsmsCvJ0AAAAABJRU5ErkJggg==);
+            background-size: 30px 30px;
+            min-height: 100%;
+            -webkit-box-sizing:border-box;
+            box-sizing: border-box;
+            padding:20px 40px;
+        }
+
+        .txt-box {
+        	width: 200px;
+        	background-color: #999;
+        }
+
+        .word-wrap-break-word {
+			word-wrap:break-word;
+        }
+
+        .word-break-break-all {
+        	word-break:break-all;
+        }
+    </style>
+</head>
+<body>
+	<div class="wrap">
+		<h4>例1.1：不设置word-wrap或者word-break（文本不超出容器）</h4>
+		<div class="default txt-box">
+			<p>哈哈 this is a long wordddddddddddddd</p>
+		</div>
+
+		<h4>例1.2：不设置word-wrap或者word-break</h4>
+		<div class="default txt-box">
+			<p>哈哈 this is a long worddddddddddddddddddddddddddd，，，，，，，，，，，，，，，</p>
+		</div>
+		
+		<h4>例2：设置word-wrap为break-word</h4>
+		<div class="word-wrap-break-word txt-box">
+			<p>哈哈 this is a long worddddddddddddddddddddddddddd，，，，，，，，，，，，，，，</p>
+		</div>
+
+		<h4>例3：设置word-break为break-all</h4>
+		<div class="word-break-break-all txt-box">
+			<p>哈哈 this is a long worddddddddddddddddddddddddddd，，，，，，，，，，，，，，，</p>
+		</div>
+	</div>
+</body>
+</html>
