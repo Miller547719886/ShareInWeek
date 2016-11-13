@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<!-- css -->
+	<link rel="stylesheet" href="./bootstrap-3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./fullpage/css/jquery.fullPage.css">
+	<link rel="stylesheet" href="./css/main.css">
+	<!-- js -->
+	<script src="./fullpage/js/jquery-1.8.3.min.js"></script>
+	<script src="./fullpage/js/jquery-ui-1.10.3.min.js"></script>
+	<script src="./fullpage/js/jquery.fullPage.min.js"></script>
+	<script>
+		$(function(){
+			var initial_width  = 1366,
+			    acture_width = $(window).width();
+			var w_scale = acture_width/initial_width;
+			$('.screen-main').css({transform:'scale(' + w_scale + ')'});
+		    $('.d-fullpage').fullpage({
+    			slidesColor: ['#ffd042', '#fc8fa0', '#45c7c7'],
+    			anchors: ['page1','page2','page3'],
+    			menu: '#menu',
+    			afterRender: function () {
+    				$('.screen-main span.js-transform').each(function () {
+						var $rel = $(this).attr('rel');
+						var $arr = $rel.split(',');
+						$(this).animate({
+							left: $arr[2] + 'px',
+							top: $arr[3] + 'px'
+						}, 300);
+					});
+    			},
+    			afterLoad: function (anchorLink,index) {
+    				if (index == 1) {
+						$('.screen-main span.js-transform').each(function(){
+							var $rel = $(this).attr('rel');
+							var $arr = $rel.split(',');
+							$(this).animate({
+								left: $arr[2] + 'px',
+								top: $arr[3] + 'px'
+							}, 300);
+						});
+					}
+					if(index == 2) {
+						$('.screen-main span.js-transform').each(function(){
+							var $rel = $(this).attr('rel');
+							var $arr = $rel.split(',');
+							if ($(this).hasClass('js-opacity')) {
+								$(this).animate({
+									left: $arr[2] + 'px',
+									top: $arr[3] + 'px',
+									opacity: 1
+								}, 200);
+							} else {
+								$(this).animate({
+									left: $arr[2] + 'px',
+									top: $arr[3] + 'px'
+								}, 200);
+							}
+						});
+						$('.screen-main span.js-scale').each(function (index,ele) {
+							var $rel = $(this).attr('rel');
+							var $arr = $rel.split(',');
+							var st = setTimeout(function () {
+								$(ele).css({
+									transform: 'scale('+$arr[1]+')',
+								});
+							},$arr[2]);
+						});
+					}
+					if (index == 3) {
+						$('.screen-main span.js-transform').each(function(){
+							var $rel = $(this).attr('rel');
+							var $arr = $rel.split(',');
+							$(this).animate({
+								left: $arr[2] + 'px',
+								top: $arr[3] + 'px'
+							}, 200);
+						});
+						$('.screen-main span.js-scale').each(function (index,ele) {
+							var $rel = $(this).attr('rel');
+							var $arr = $rel.split(',');
+							var st = setTimeout(function () {
+								$(ele).css({
+									transform: 'scale('+$arr[1]+')',
+								});
+							},$arr[2]);
+						});
+					}
+    			},
+    			onLeave: function (index,direction) {
+    				if (index == 1) { 
+						$('.screen-main span.js-transform').each(function(){
+							var $rel = $(this).attr('rel');
+							var $arr = $rel.split(',');
+							$(this).animate({
+								left: $arr[0] + 'px',
+								top: $arr[1] + 'px'
+							}, 300);
+						});
+					}
+					if (index == 2) {
+						$('.screen-main span.js-transform').each(function(){
+							var $rel = $(this).attr('rel');
+							var $arr = $rel.split(',');
+							if ($(this).hasClass('js-opacity')) {
+								$(this).delay(210).animate({
+									left: $arr[0] + 'px',
+									top: $arr[1] + 'px',
+									opacity: 0
+								}, 300);
+							} else {
+								$(this).delay(210).animate({
+									left: $arr[0] + 'px',
+									top: $arr[1] + 'px'
+								}, 200);
+							}
+						});
+						$('.screen-main span.js-scale').each(function () {
+							var $rel = $(this).attr('rel');
+							var $arr = $rel.split(',');
+							$(this).css({
+								transform: 'scale('+$arr[0]+')'
+							});
+						});
+					}
+					if (index == 3) {
+						$('.screen-main span.js-transform').each(function(){
+							var $rel = $(this).attr('rel');
+							var $arr = $rel.split(',');
+							$(this).delay(210).animate({
+								left: - $arr[0] + 'px',
+								top: $arr[1] + 'px'
+							}, 400,function () {
+								$(this).css({
+									left: $arr[2] + 'px',
+									top: $arr[3] + 'px'
+								})
+							});
+						});
+						$('.screen-main span.js-scale').each(function () {
+							var $rel = $(this).attr('rel');
+							var $arr = $rel.split(',');
+							$(this).css({
+								transform: 'scale('+$arr[0]+')'
+							});
+						});
+					}
+    			},
+		    });
+		});
+	</script>
+</head>
+<body>
+	<header></header>
+	<div class="d-fullpage">
+		<div class="section">
+			<div class="screen-main screen-one">
+				<span class="arrow"></span>
+				<a class="ksxx"></a>
+				<span class="man-lt js-transform" rel="350,300,192,220"></span>
+				<span class="woman-lb js-transform" rel="369,389,239,389"></span>
+				<span class="man-rt js-transform" rel="560,300,735,189"></span>
+				<span class="man-rb js-transform" rel="600,380,774,380"></span>
+				<span class="pc"></span>
+				<div class="b-w"></div>
+			</div>
+		</div> 
+	    <div class="section screen-two">
+	    	<div class="screen-main">
+				<span class="sck"></span>
+				<a href="" class="sczx"></a>
+				<span class="i-p"></span>
+				<span class="i-h"></span>
+				<span class="i-m"></span>
+				<span class="i-v"></span>
+				<span class="person js-transform js-opacity" rel="470,407,470,367"></span>
+				<span class="c-s js-scale" rel="0,1,300"></span>
+				<span class="c-l js-scale" rel="0,1,600"></span>
+			</div>
+	    </div>
+	    <div class="section screen-three">
+			<div class="screen-main">
+				<span class="zybjq"></span>
+				<span class="pop js-scale" rel="0,1,300"></span>
+				<a href="" class="ljxz"></a>
+				<span class="fly js-transform" rel="-1600,290,92,290"></span>
+			</div>
+	    </div>
+	</div>
+	<ul id="menu">
+		<li data-menuanchor="page1" class="active">
+			<a href="#page1">
+				<i class="icon-pencil"></i>
+				工具学习
+			</a>
+		</li>
+		<li data-menuanchor="page2" class="">
+			<a href="#page2">
+				<i class="icon-resource"></i>
+				素材中心
+			</a>
+		</li>
+		<li data-menuanchor="page3" class="">
+			<a href="#page3">
+				<i class="icon-tool"></i>
+				工具下载
+			</a>
+		</li>
+	</ul>
+</body>
+
+</html>

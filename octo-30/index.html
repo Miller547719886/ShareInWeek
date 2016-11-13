@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>纯css实现ios切换按钮</title>
+	<style>
+		* {
+			-webkit-user-select: none;
+		}
+
+		body {
+			text-align: center;
+		}
+
+		.d-ib {
+			display: inline-block;
+		}
+
+		.ios input {
+			display: none;
+		}
+
+		.ios i {
+			display:block;
+			cursor:pointer;
+			width:50px;
+			height:25px;
+			border-radius:25px;
+			border:1px solid #d0d0d0;
+			transition: all 0.2s;
+		}
+
+		.ios i:before {
+			position: relative;
+			top: -1px;
+			left: -1px;
+			display:block;
+			content:'';
+			width:25px;
+			height:25px;
+			border-radius:25px;
+			border:1px solid #d0d0d0;
+			background-color: #fff;
+		}
+
+		.ios input:checked + i {
+			width: 25px;
+			padding-left: 25px;
+			background-color: #23f823;
+		}
+	</style>
+</head>
+<body>
+	<h3>纯css实现ios切换按钮</h3>
+	<div class="d-ib">
+		<label  class="ios">
+			<input type="checkbox" checked>
+			<i></i>
+		</label>
+	</div>
+</body>
+</html>
