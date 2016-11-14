@@ -13,6 +13,9 @@
 	<script src="./fullpage/js/jquery.fullPage.min.js"></script>
 	<script>
 		$(function(){
+			if($.browser.msie && $.browser.version < 9){
+				$('body').addClass('ltie9');
+			}
 			var initial_width  = 1366,
 			    acture_width = $(window).width();
 			var w_scale = acture_width/initial_width;
