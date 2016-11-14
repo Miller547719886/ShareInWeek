@@ -24,8 +24,8 @@ button {
 }
 
 a {
-	-webkit-transition: background 0.15s ease-in 0s;
-	transition: background 0.15s ease-in 0s;
+/*	-webkit-transition: background 0.15s ease-in 0s;
+	transition: background 0.15s ease-in 0s;*/
 	cursor: pointer;
 }
 
