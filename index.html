@@ -51,7 +51,7 @@
             padding:5px 12px;
             color: rgb(101, 123, 131);
             box-shadow: 0 1px 2px rgba(0,0,0,.1);
-            padding-left: 45px;
+            padding-left: 72px;
             overflow: hidden;
         }
 
@@ -64,7 +64,7 @@
             position: absolute;
             left: 0;
             top: 0;
-            width: 40px;
+            width: 67px;
             height: 100%;
             background-color: #444;
             color: #fff;
@@ -90,56 +90,105 @@
         <h1>目录</h1>
         <div class="catalog">
             <div class="item">
-                <a href="./sept-30/filter.html" title="filter的各种效果与兼容性研究">
+                <a href="./16-9-30/filter.html" title="filter的各种效果与兼容性研究">
                     <div class="date">
                         <span>
-                            9.30
+                           2016-9-30
                         </span>
                     </div>
                     filter的各种效果与兼容性研究
                 </a>
             </div>
             <div class="item">
-                <a href="./octo-12/index.html" title="仿百度图片首页">
+                <a href="./16-10-12/index.html" title="仿百度图片首页">
                     <div class="date">
                         <span>
-                            10.12
+                            2016-10-12
                         </span>
                     </div>
                     仿百度图片首页
                 </a>
             </div>
             <div class="item">
-                <a href="./octo-23/index.html" title="word-wrap与word-break">
+                <a href="./16-10-23/index.html" title="word-wrap与word-break">
                     <div class="date">
                         <span>
-                            10.23
+                            2016-10-23
                         </span>
                     </div>
                     word-wrap与word-break
                 </a>
             </div>
             <div class="item">
-                <a href="./octo-30/index.html" title="纯css实现ios切换按钮">
+                <a href="./16-10-30/index.html" title="纯css实现ios切换按钮">
                     <div class="date">
                         <span>
-                            10.30
+                            2016-10-30
                         </span>
                     </div>
                     纯css实现ios切换按钮
                 </a>
             </div>
             <div class="item">
-                <a href="./nov-13/index.html" title="全屏滚动">
+                <a href="./16-11-13/index.html" title="全屏滚动">
                     <div class="date">
                         <span>
-                            11.13
+                            2016-11-13
                         </span>
                     </div>
                     全屏滚动实现案例
                 </a>
             </div>
+            <div class="item">
+                <a href="./16-11-19/index.html" title="3d魔方">
+                    <div class="date">
+                        <span>
+                            2016-11-19
+                        </span>
+                    </div>
+                    3d模型动画
+                </a>
+            </div>
+            <div class="item">
+                <a href="./16-12-1/index.html" title="仿bilibili轮播">
+                    <div class="date">
+                        <span>
+                            2016-12-1
+                        </span>
+                    </div>
+                    仿bilibili轮播
+                </a>
+            </div>
         </div>
     </div>
+    <script type="text/javascript">
+        Function.prototype.method = function(name, func) {
+            this.prototype[name] = func;
+            return this;
+        }
+
+        Number.method('checkInt', function() {
+            return Math[this < 0 ? 'ceil' : 'floor'](this);
+        });
+
+        var a = -123.9345;
+        // console.log(a.checkInt());
+        var x = 20;
+        var a = {
+            x: 15,
+            fn: function() {
+                var xx = this.x;
+                return function() {
+                    return xx;
+                };
+            }
+        };
+        console.log(a.fn());//function() {}
+        console.log((a.fn())());//20
+        console.log(a.fn()());//20
+        console.log(a.fn()() === (a.fn())());//true
+        console.log(a.fn());//
+        console.log(a.fn().call(a));
+    </script>
 </body>
 </html>

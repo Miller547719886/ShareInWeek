@@ -1,0 +1,295 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*:before,*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+ul,li {
+    list-style: none;
+}
+
+.listBox:before,.listBox:after {
+    content: "";
+    display: table;
+}
+
+.listBox:after {
+    clear: both;
+}
+
+.MCarousel {
+    width: 100%;
+    height: 360px;
+    overflow: hidden;
+    position: relative;
+}
+
+.clickSpace {
+    width: 1000px;
+    height: 100%;
+    margin: auto;
+    position: relative;
+}
+
+.maskLeft,.maskRight {
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    top: 0;
+    background: rgba(255,255,255,0.3);
+    z-index: 2;
+    transition: opacity 0.5s ease 0s;
+}
+
+.maskLeft {
+    left: -500px;
+}
+
+.maskRight {
+    right: -500px;
+}
+
+.carousel {
+    width: 100%;
+    height: 100%;
+}
+
+.listBox {
+    min-width: 20000px;
+    height: 100%;
+    margin-left: -200%;
+    transition: transform 500ms ease 0s;
+    background: rgba(1,1,1,.5);
+    -webkit-transform: translate(0,0);
+    -moz-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+}
+
+.item {
+    float: left;
+    width: 1000px;
+    height: 100%;
+}
+
+.item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.item:not(.active){
+    filter: url(blur.svg#blur);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+    filter: progid: DXImageTransform.Microsoft.Blur(PixelRadius=5, MakeShadow=false);
+}
+
+.playBoxL,.playBoxR {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.playPrev,.playNext {
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.playPrev {
+    right: 0;
+    background-image: url('../img/left.png');
+    background-size: 100% 100%;
+}
+
+.playNext {
+    left: 0;
+    background-image: url('../img/right.png');
+    background-size: 100% 100%;
+}
+
+.active {
+
+}
+
+/* 索引 */
+.index-box {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+}
+
+.index-box.active {
+    display: block;
+}
+
+.index-box .item {
+    
+}
+
+.index-box .item.active{
+    width: ;
+    background-color: ;
+}
+
+/* 响应式 */
+@media screen and (min-width:320px) {
+    .MCarousel {
+        height: 82.28px;
+    }
+    .clickSpace,.item {
+        width: 228.57px;
+    }
+    .maskLeft {
+        left: -114.28px;
+    }
+    .maskRight {
+        right: -114.28px;
+    }
+    .playPrev,.playNext {
+        width: 18.28px;
+        height: 18.28px; 
+    }
+    .index-box {
+        width:;
+        height:;
+        margin-left:;
+    }
+    
+}
+
+@media screen and (min-width:360px) {
+    .MCarousel {
+        height: 92.57px;
+    }
+    .clickSpace,.item {
+        width: 257.14px;
+    }
+    .maskLeft {
+        left: -128.57px;
+    }
+    .maskRight {
+        right: -128.57px;
+    }
+    .playPrev,.playNext {
+        width: 20.57px;
+        height: 20.57px; 
+    }
+    .index-box {
+        width:;
+        height:;
+        margin-left:;
+    }
+  
+}
+
+@media screen and (min-width:768px) {
+    .MCarousel {
+        height: 197.48px;
+    }
+    .clickSpace,.item {
+        width: 548.57px;
+    }
+    .maskLeft {
+        left: -274.28px;
+    }
+    .maskRight {
+        right: -274.28px;
+    }
+    .playPrev,.playNext {
+        width: 43.88px;
+        height: 43.88px; 
+    }
+    .index-box {
+        width:;
+        height:;
+        margin-left:;
+    }
+
+}
+
+@media screen and (min-width:992px) {
+    .MCarousel {
+        height: 255.08px;
+    }
+    .clickSpace,.item {
+        width: 708.57px;
+    }
+    .maskLeft {
+        left: -354.28px;
+    }
+    .maskRight {
+        right: -354.28px;
+    }
+    .playPrev,.playNext {
+        width: 56.68px;
+        height: 56.68px; 
+    }
+    .index-box {
+        width:;
+        height:;
+        margin-left:;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .MCarousel {
+        height: 308.57px;
+    }
+    .clickSpace,.item {
+        width: 857.14px;
+    }
+    .maskLeft {
+        left: -428.57px;
+    }
+    .maskRight {
+        right: -428.57px;
+    }
+    .playPrev,.playNext {
+        width: 68.57px;
+        height: 68.57px; 
+    }
+    .index-box {
+        width:;
+        height:;
+        margin-left:;
+    }
+}
+
+@media screen and (min-width:1400px) {
+    .MCarousel {
+        height: 360px;
+    }
+    .clickSpace,.item {
+        width: 1000px;
+    }
+    .maskLeft {
+        left: -500px;
+    }
+    .maskRight {
+        right: -500px;
+    }
+    .playPrev,.playNext {
+        width: 80px;
+        height: 80px;
+    }
+    .index-box {
+        width:;
+        height:;
+        margin-left:;
+    }
+}
+
