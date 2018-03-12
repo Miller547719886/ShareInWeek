@@ -137,7 +137,6 @@
         ClipboardEvent.preventDefault();
         this.currentExtraText(this.extraTextArr);
         var copyText = document.getSelection().toString() || document.selection.createRange().text; // 获取复制文本内容
-        console.log(document.getSelection().toString(), document.selection.createRange().text, 123)
         var clipboardData = ClipboardEvent.clipboardData || window.clipboardData; // 区分其他浏览器与IE
         var result;
         
