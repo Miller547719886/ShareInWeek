@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <a class="btn" href="#green">turn green</a>
+  <a class="btn" href="#red">turn red</a>
+  <a class="btn" href="#brown">turn brown</a>
+  <script src="./router.js"></script>
+  <script>
+    var body = document.getElementsByTagName("body")[0];
+
+    var router = new Router();
+    
+    router.set("green", function() {
+        body.style.background = "#3ac593";
+    });
+    router.set("red", function() {
+        body.style.background = "#d05560";
+    });
+    router.set("brown", function() {
+        body.style.background = "#bd6c3c";
+    });
+  </script>
+</body>
+</html>

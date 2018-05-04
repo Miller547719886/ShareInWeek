@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="main.js"></script> -->
+</head>
+<body>
+  <script>
+    console.group('q1:')
+    // 以最小改动解决以下代码错误（可以使用es6）
+    /* 版本1： */
+    // const obj = {
+    //   name: ' jsCoder',
+    //   skill: ['es6', 'react', 'angular'],
+    //   say: function() {
+    //     var self = this
+    //     for (var i = 0, len = this.skill.length; i < len; i++) {
+    //       (function(i, self) {
+    //         setTimeout(function () {
+    //           console.log('NO.' + i + self.name);
+    //           console.log(self.skill[i - 1]);
+    //           console.log('------------')
+    //         }, 0);
+    //         console.log(i);
+    //       }(i + 1, self));
+    //     }
+    //   }
+    // }
+    // obj.say();
+    /* 版本2： */
+    // const obj = {
+    //   name: ' jsCoder',
+    //   skill: ['es6', 'react', 'angular'],
+    //   say: function () {
+    //     for (var i = 0, len = this.skill.length; i < len; i++) {
+    //       ((function (i) {
+    //         console.log(this)
+    //         setTimeout((function () {
+    //           console.log('NO.' + (i + 1) + this.name);
+    //           console.log(this.skill[i]);
+    //           console.log('------------')
+    //         }).bind(this), 0);
+    //         console.log(i);
+    //       }).bind(this)(i));
+    //     }
+    //   }
+    // }
+    // obj.say();
+    /* 版本3 */
+    const obj = {
+      name: ' jsCoder',
+      skill: ['es6', 'react', 'angular'],
+      say: function () {
+        for (var i = 0, len = this.skill.length; i < len; i++) {
+          ((function (i) {
+            console.log(this)
+            setTimeout((function () {
+              console.log('NO.' + (i + 1) + this.name);
+              console.log(this.skill[i]);
+              console.log('------------')
+            }).bind(this), 0);
+            console.log(i);
+          }).call(this, i));
+        }
+      }
+    }
+    obj.say();
+
+    /* 期望得到下面的结果：
+    1
+    2
+    3
+    No1 jsCoder
+    es6 */
+
+    console.groupEnd()
+
+  </script>
+  <script>
+  </script>
+</body>
+</html>

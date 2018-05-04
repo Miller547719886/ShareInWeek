@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <script>
+    /* start */
+    Function.prototype.bind = function (context, ...args) {
+      const Parent = this
+      var Super = function () { };
+      var Child = function (..._args) {
+        Parent.apply(this, [...args, ..._args]);
+      }
+      Super.prototype = Parent.prototype;
+      Child.prototype = new Super();
+      Child.prototype.constructor = Child;
+      return Child
+    }
+    /* end */
+
+    function Animal (name, color, sex) {
+      this.name = name
+      this.color = color
+      this.sex = sex
+    }
+    Animal.prototype.say = function () {
+      return `I'm a ${this.color} ${this.name}`; 
+    }
+    const Cat = Animal.bind(null, 'cat', 'white');
+    const cat = new Cat('male');
+
+    if (cat.say() === 'I\'m a white cat' && cat instanceof Cat && cat instanceof Animal) {
+      console.log('success')
+    }
+  </script>
+</body>
+</html>

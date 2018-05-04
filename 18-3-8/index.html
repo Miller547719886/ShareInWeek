@@ -130,6 +130,8 @@
           $node.addEventListener($event, $handler, false);
         } else if ($node.attachEvent) { // IE8-
           $node.attachEvent($event, $handler);
+        } else {
+          $node['on' + $event] = $handler
         }
       };
 
