@@ -12,71 +12,44 @@
   请打开"开发者工具"中的"console"栏
   <script>
     console.group('q1:')
+
     // 以最小改动解决以下代码错误（可以使用es6）
-    /* 版本1： */
-    // const obj = {
-    //   name: ' jsCoder',
-    //   skill: ['es6', 'react', 'angular'],
-    //   say: function() {
-    //     var self = this
-    //     for (var i = 0, len = this.skill.length; i < len; i++) {
-    //       (function(i, self) {
-    //         setTimeout(function () {
-    //           console.log('NO.' + i + self.name);
-    //           console.log(self.skill[i - 1]);
-    //           console.log('------------')
-    //         }, 0);
-    //         console.log(i);
-    //       }(i + 1, self));
-    //     }
-    //   }
-    // }
-    // obj.say();
-    /* 版本2： */
-    // const obj = {
-    //   name: ' jsCoder',
-    //   skill: ['es6', 'react', 'angular'],
-    //   say: function () {
-    //     for (var i = 0, len = this.skill.length; i < len; i++) {
-    //       ((function (i) {
-    //         console.log(this)
-    //         setTimeout((function () {
-    //           console.log('NO.' + (i + 1) + this.name);
-    //           console.log(this.skill[i]);
-    //           console.log('------------')
-    //         }).bind(this), 0);
-    //         console.log(i);
-    //       }).bind(this)(i));
-    //     }
-    //   }
-    // }
-    // obj.say();
-    /* 版本3 */
-    const obj = {
+    /* es5 */
+    const obj1 = {
       name: ' jsCoder',
       skill: ['es6', 'react', 'angular'],
       say: function () {
+        var arr = [];
+        var self = this;
         for (var i = 0, len = this.skill.length; i < len; i++) {
-          ((function (i) {
-            console.log(this)
+          arr[i] = function (i) {
             setTimeout((function () {
-              console.log('NO.' + (i + 1) + this.name);
-              console.log(this.skill[i]);
+              console.log('NO.' + (i) + this.name);
+              console.log(this.skill[i - 1]);
               console.log('------------')
-            }).bind(this), 0);
+            }).bind(self), 0);
             console.log(i);
-          }).call(this, i));
+          }(i + 1);
         }
       }
     }
-    obj.say();
-
-    /* 期望得到下面的结果：
-    1
-    2
-    3
-    No1 jsCoder
-    es6 */
+    obj1.say();
+    /* es6 */
+    const obj2 = {
+      name: ' jsCoder',
+      skill: ['es6', 'react', 'angular'],
+      say: function () {
+        for (let i = 0, len = this.skill.length; i < len; i++) {
+          setTimeout((function () {
+            console.log('NO.' + (i + 1) + this.name);
+            console.log(this.skill[i]);
+            console.log('------------')
+          }).bind(this), 0);
+          console.log(i + 1);
+        }
+      }
+    }
+    setTimeout(obj2.say.bind(obj2), 1000);
 
     console.groupEnd()
 
