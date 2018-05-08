@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <script>
+    /* 实现es5的bind */
+    Function.prototype.bind = function (context) {
+      var self = this;
+      var args = Array.prototype.slice.call(arguments, 1);
+      function Super () {  };
+
+      Super.prototype = self.prototype
+
+      var res = function () { // 伪造this后函数
+        var innerArgs = Array.prototype.slice.call(arguments);
+
+        return self.apply(this instanceof Super ? this : (context || this), [...innerArgs, args]) // 按照this优先级：new绑定 > 显式绑定 > 隐式绑定 > 默认绑定，忽略构造函数的this绑定
+      }
+      return res
+    };
+
+    var obj1 = {
+      name: 'bob',
+      say: function () {
+        console.log(this.name)
+      }
+    }
+    var obj2 = {
+      name: 'john',
+      say: function () {
+        console.log(this.name)
+      }
+    }
+    var name = 'jack'
+    obj1.say.bind(obj2, )()
+  </script>
+</body>
+</html>
